@@ -32,3 +32,37 @@ function decimalToBinary(n){
 
 // decimalToBinary(5);
 
+//Print the indexes of all the SubArray of an Array
+
+function PrintAllSubarray(arr){
+    for(let start=0; start < arr.length; start++){ debugger// printing all the start 0,1,2,3,4
+        for(let end=start; end < arr.length; end++){debugger//printing all the end for each start value
+           //console.log("( " + start + " , " + end + " ) "  );//print all indexed
+
+           for(let i=start; i<end; i++){
+            console.log(arr[i] + " " ); // printing all the subarray values
+           }
+        }
+    }
+}
+ //PrintAllSubarray([1,2,3,4,5]);
+
+ function PrintMaxSumSubarray(arr){
+    let maxSum = 0; // initializing the maximum sum to 0
+    for(let start=0; start < arr.length; start++){ debugger// printing all the start 0,1,2,3,4
+        for(let end=start; end < arr.length; end++){debugger//printing all the end for each start value
+           //console.log("( " + start + " , " + end + " ) "  );//print all indexed
+            let currentSum = 0; // initializing the current sum for each subarray
+            
+           for(let i=start; i<=end; i++){
+                currentSum += arr[i]; // adding the current subarray value to the current sum
+                
+           }
+           maxSum = Math.max(maxSum, currentSum); // updating the maximum sum if current sum is greater
+           
+        }
+    }
+    console.log("Maximum Sum of Subarray: " + maxSum); // printing the maximum sum of subarray
+}
+ PrintMaxSumSubarray([1,2,3,4,5]);
+
