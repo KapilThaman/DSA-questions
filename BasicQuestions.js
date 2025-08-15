@@ -99,5 +99,21 @@ function KadaneAlgo(arr){ // O(n) approach to find the maximum sum of subarray u
     console.log("Maximum Sum of Subarray using Kadane's Algorithm: " + maxSum); // printing the maximum sum of subarray
 }
 
-KadaneAlgo([2,-3,6,-5,4,2])
+// KadaneAlgo([2,-3,6,-5,4,2])
 
+function BuySellStocks(arr){
+        let minBuyprice = arr[0]; // initializing the minimum buy price to the first element
+        let maxProfit = 0; // initializing the maximum profit to 0
+        for(let i = 1; i < arr.length; i++){ // starting from the second element
+            if(arr[i] < minBuyprice){ // if current price is less than minimum buy price
+                minBuyprice = arr[i]; // update the minimum buy price
+            } else { // if current price is greater than minimum buy price
+                let profit = arr[i] - minBuyprice; // calculate the profit
+                maxProfit = Math.max(maxProfit, profit); // update the maximum profit if current profit is greater
+            }
+
+        }
+        console.log("Maximum Profit from Buy and Sell Stocks: " + maxProfit); // printing the maximum profit
+}
+
+BuySellStocks([7,1,5,3,6,4]); // Example input for BuySellStocks function
