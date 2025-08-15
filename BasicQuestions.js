@@ -47,7 +47,7 @@ function PrintAllSubarray(arr){
 }
  //PrintAllSubarray([1,2,3,4,5]);
 
- function PrintMaxSumSubarray(arr){
+ function PrintMaxSumSubarray(arr){ // n^3 approach to find the maximum sum of subarray
     let maxSum = 0; // initializing the maximum sum to 0
     for(let start=0; start < arr.length; start++){ debugger// printing all the start 0,1,2,3,4
         for(let end=start; end < arr.length; end++){debugger//printing all the end for each start value
@@ -64,5 +64,40 @@ function PrintAllSubarray(arr){
     }
     console.log("Maximum Sum of Subarray: " + maxSum); // printing the maximum sum of subarray
 }
- PrintMaxSumSubarray([1,2,3,4,5]);
+//  PrintMaxSumSubarray([1,2,3,4,5]);
+
+
+
+
+ function PrintMaxSumSubarray2(arr){ // n^2 approach to find the maximum sum of subarray
+    let maxSum = 0; // initializing the maximum sum to 0
+    for(let start=0; start < arr.length; start++){ debugger// printing all the start 0,1,2,3,4
+       
+       let currentSum = 0; // initializing the current sum for each subarray
+
+        for(let end=start; end < arr.length; end++){debugger//printing all the end for each start value
+           //console.log("( " + start + " , " + end + " ) "  );//print all indexed
+            currentSum += arr[end]; // adding the current subarray value to the current sum
+           maxSum = Math.max(maxSum, currentSum); // updating the maximum sum if current sum is greater
+           
+        }
+    }
+    console.log("Maximum Sum of Subarray: " + maxSum); // printing the maximum sum of subarray
+}
+//  PrintMaxSumSubarray2([1,2,3,4,5]);
+
+function KadaneAlgo(arr){ // O(n) approach to find the maximum sum of subarray using Kadane's Algorithm
+    let currentSum = 0; // initializing the current sum to 0
+    let maxSum = 0; // initializing the maximum sum to 0
+    for(let i =0; i < arr.length; i++){
+        currentSum += arr[i]; // adding the current element to the current sum
+        if(currentSum < 0){ // if current sum is negative, reset it to 0
+            currentSum = 0;
+        }
+        maxSum = Math.max(maxSum, currentSum); // updating the maximum sum if current sum is greater
+    }
+    console.log("Maximum Sum of Subarray using Kadane's Algorithm: " + maxSum); // printing the maximum sum of subarray
+}
+
+KadaneAlgo([2,-3,6,-5,4,2])
 
